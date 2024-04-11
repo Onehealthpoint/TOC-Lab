@@ -5,59 +5,81 @@ String has even number of a's and b's over E = {a, b}
 #include<iostream>
 using namespace std;
 
-void q0(string, int);
-void q1(string, int);
-void q2(string, int);
-void q3(string, int);
+void q0(string,int);
+void q1(string,int );
+void q2(string,int);
+void q3(string,int);
 
-void q0(string s, int i){
-	if(i==s.length()){
-		cout<<"The string is Accepted\n";
-		return;
+void q1(string s,int i)
+{
+	if(i==s.length())
+{
+	cout<< "NO.The string is not accepted\n";
+	return;
+}
+if (s[i] == 'a')
+q0(s,i+1);
+else if(s[i]=='b') {
+q3(s,i+1);
+}
+else{
+	cout<<"NO.The string is not accepted\n";
 	}
-	if(s[i] =='a')
-		q1(s,i+1);
-	else 
-		q3(s,i+1);
 }
 
-void q1(string s, int i){
-	if(i==s.length()){
-		cout<<"The string is Not accepted\n";
-		return;
+void q2(string s,int i)
+{
+	if(i==s.length())
+	{
+		cout<<"NO.The string is not accepted\n";
+		return ;
 	}
-	if(s[i] =='a')
-		q0(s,i+1);
-	else 
-		q2(s,i+1);
+	if (s[i]=='a')
+	q3(s,i+1);
+	else if(s[i]=='b')
+	q0(s,i+1);
+	else{
+	cout<<"NO.The string is not accepted\n";
+	}
 }
-void q2(string s, int i){
-	if(i ==s.length()){
-		cout<<"The string is Not accepted\n";
-		return;
+void q3(string s ,int i)
+{
+	if (i==s.length())
+	{
+		cout<<"NO.The string is not accepted \n";
+		return ;
 	}
 	if(s[i]=='a')
-		q3(s,i+1);
-	else 
-		q1(s,i+1);
-}
-void q3(string s, int i){
-	if(i ==s.length()){
-		cout<<"The string is Not accepted\n";
-		return;
+	q2(s,i+1);
+	else if(s[i]=='b'){
+	q1(s,i+1);
 	}
-	if(s[i] == 'a')
-		q0(s,i+1);
-	else 
-		q2(s,i+1);
+		else{
+	cout<<"NO.The string is not accepted\n";
+	}
 }
 
+
+void q0(string s ,int i)
+{
+	if (i==s.length())
+	{
+		cout<<"ok.The string is accepted \n";
+		return ;
+	}
+	if(s[i]=='a')
+	q1(s,i+1);
+	else if(s[i]=='b'){
+	q2(s,i+1);
+	}	else{
+	cout<<"NO.The string is not accepted\n";
+	}
+}
 int main(){
-	string s;
-	 cout<<"Enter the string: ";
-	 cin>>s;
-	 q0(s,0);
-	 return 0;
+	string S;
+	cout<<"Enter the string\n";
+	cin>>S;
+	q0(S,0);	
 }
 
 
